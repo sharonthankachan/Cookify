@@ -128,7 +128,7 @@ const RecipeDetails = () => {
             </ul>
           </div>
           <div className="flex flex-col md:pt-9 md:pb-12 md:w-7/12">
-            <div className=" bg-amber-200 md:p-8 p-4 rounded-xl shadow-lg bg-opacity-60">
+            <div className=" bg-amber-200 md:p-8 p-4 rounded-xl shadow-lg bg-opacity-60 mb-12">
               <h2 className="text-amber-950 md:text-xl text-2xl  sm:text-center font-medium mb-9">
                 Health Labels
               </h2>

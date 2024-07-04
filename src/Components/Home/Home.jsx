@@ -4,10 +4,10 @@ import FeaturedRecipies from "./FeaturedRecipies";
 
 const Home = () => {
   return (
-    <>
+    <div className="bg-white">
       <Hero />
       <FeaturedRecipies/>
-    </>
+    </div>
   );
 };
 

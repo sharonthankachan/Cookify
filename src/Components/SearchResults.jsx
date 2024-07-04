@@ -47,7 +47,7 @@ const SearchResults = () => {
   };
 
   return (
-    <div className="">
+    <div className="bg-white">
       <div className="mt-16 relative">
         <div
           className="bg-cover bg-center relative py-36"

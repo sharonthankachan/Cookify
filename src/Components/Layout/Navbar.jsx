@@ -11,7 +11,7 @@ const Navbar = () => {
   const { favorites } = useContext(GlobalContext);
 
   return (
-    <nav className="bg-transparent z-50 bg-white fixed top-0 w-full">
+    <nav className="z-50 bg-white fixed top-0 w-full">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between md:h-16 h-12 lg:px-28">
           <div className="flex-shrink-0">

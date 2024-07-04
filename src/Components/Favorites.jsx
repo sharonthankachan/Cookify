@@ -6,7 +6,7 @@ const Favorites = () => {
   const { favorites } = useContext(GlobalContext);
 
   return (
-    <div className="xl:mx-40 py-16 lg:mx-10 mx-3">
+    <div className="xl:mx-40 py-16 bg-white lg:mx-10 mx-3">
       <h1 className="text-center text-4xl font-bold text-gray-900 mt-8">
         Your Favorites
       </h1>
