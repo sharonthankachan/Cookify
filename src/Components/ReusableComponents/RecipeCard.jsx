@@ -58,7 +58,7 @@ const RecipeCard = ({
             </div>
           </div>
           <div className="py-6 px-3">
-            <h2 className="text-md font-light mb-4 text-center">{recipeName}</h2>
+            <h2 className="text-md font-light mb-4 text-slate-900 text-center">{recipeName}</h2>
             <div className="flex space-x-2 justify-center mb-6">
               <p className="text-slate-700 text-xs text-center rounded bg-slate-100 py-1 px-2">
                 {cuisineType}
