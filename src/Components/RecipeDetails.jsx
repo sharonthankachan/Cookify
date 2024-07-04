@@ -96,7 +96,7 @@ const RecipeDetails = () => {
               )}
               <div className="md:flex space-y-4 md:space-y-0 md:space-x-4">
                 <a
-                  className="outline outline-1 outline-amber-600 bg-amber-600 justify-between hover:bg-amber-700 transition duration-500 text-white px-8 py-3 rounded-lg flex  items-center gap-3 "
+                  className="outline hover:cursor-pointer outline-1 outline-amber-600 bg-amber-600 justify-between hover:bg-amber-700 transition duration-500 text-white px-8 py-3 rounded-lg flex  items-center gap-3 "
                   href={recipe.url}
                   target="_blank"
                 >
@@ -105,7 +105,7 @@ const RecipeDetails = () => {
                 </a>
                 <a
                   onClick={handleAddToFavClick}
-                  className="outline outline-1 outline-amber-600 bg-amber-600 justify-between hover:bg-amber-700  transition duration-500 text-white px-8 py-3 rounded-lg flex  items-center gap-3"
+                  className="outline outline-1 hover:cursor-pointer outline-amber-600 bg-amber-600 justify-between hover:bg-amber-700  transition duration-500 text-white px-8 py-3 rounded-lg flex  items-center gap-3"
                 >
                   {favoriteClick?"Remove from Favorites":"Add to Favorites"}
                   {favoriteClick ? <MdFavorite /> : <MdFavoriteBorder />}
@@ -128,12 +128,12 @@ const RecipeDetails = () => {
             </ul>
           </div>
           <div className="flex flex-col md:pt-9 md:pb-12 md:w-7/12">
-            <div className=" bg-amber-200 md:p-8 p-4 rounded-xl shadow-lg bg-opacity-60 mb-12">
+            <div className=" bg-stone-200 md:p-8 p-4 rounded border bg-opacity-60 mb-12">
               <h2 className="text-amber-950 md:text-xl text-2xl  sm:text-center font-medium mb-9">
                 Health Labels
               </h2>
-              <div className="">
-                <ul className="grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 gap-3 text-gray-900">
+              <div className="sm:flex sm:justify-center">
+                <ul className="grid lg:grid-cols-4 list-disc list-inside sm:list-none sm:grid-cols-3 grid-cols-1 gap-3 text-gray-950">
                   {recipe.healthLabels.map((item, index) => (
                     <li key={index} className="md:text-xs font-normal">
                       {item}

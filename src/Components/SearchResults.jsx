@@ -65,7 +65,7 @@ const SearchResults = () => {
               <input
                 type="text"
                 placeholder="Search your dish / ingredients here"
-                className="px-6 py-5 text-xs w-60 md:w-80 focus:outline outline-gray-600 rounded-xl mr-3"
+                className="px-6 py-5 text-xs w-60 md:w-80 focus:outline bg-white outline-gray-600 rounded-xl mr-3"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);

@@ -22,7 +22,7 @@ const Hero = () => {
     <>
       <div
         style={{ backgroundImage: `url(${bg_img})` }}
-        className="md:mt-16 mt-10 bg-cover bg-center w-full h-full py-8"
+        className="md:mt-16 mt-10 bg-cover bg-white bg-center w-full h-full py-8"
       >
         <div className="xl:mx-36 mx-6 lg:mx-10">
           <h1 className="mt-16 lg:text-6xl md:text-5xl text-4xl capitalize lg:leading-[5rem] md:leading-[3.5rem] leading-snug font-semibold text-amber-950 md:w-7/12">
@@ -37,7 +37,7 @@ const Hero = () => {
               <input
                 type="text"
                 placeholder="Search your dish/ingredients here"
-                className="px-6 py-5  text-xs md:w-80 w-52 focus:outline-gray-300 rounded-xl mr-3"
+                className="px-6 py-5  text-xs md:w-80 w-52 bg-white focus:outline-gray-300 rounded-xl mr-3"
                 value={searchQuery}
                 onChange={(e) => {
                   setSearchQuery(e.target.value);
