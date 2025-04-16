@@ -1,25 +1,30 @@
 import "./App.css";
-import Home from "./Components/Home/Home";
-import Navbar from "./Components/Layout/Navbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import RecipeDetails from "./Components/RecipeDetails";
+import { Suspense, lazy } from "react";
 import GlobalState from "./API/GLobalContext";
-import SearchResults from "./Components/SearchResults";
-import Favorites from "./Components/Favorites";
+import Navbar from "./Components/Layout/Navbar";
 import Footer from "./Components/Layout/Footer";
+import Loader from "./Components/ReusableComponents/Loader";
+
+const Home = lazy(() => import("./Components/Home/Home"));
+const RecipeDetails = lazy(() => import("./Components/RecipeDetails"));
+const SearchResults = lazy(() => import("./Components/SearchResults"));
+const Favorites = lazy(() => import("./Components/Favorites"));
 
 function App() {
   return (
     <GlobalState>
       <BrowserRouter>
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/recipedetails/:label" element={<RecipeDetails />} />
-          <Route path="/searchresults" element={<SearchResults />} />
-          <Route path="/favorites" element={<Favorites/>} />
-        </Routes>
-        <Footer/>
+        <Suspense fallback={<Loader/>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/recipedetails/:label" element={<RecipeDetails />} />
+            <Route path="/searchresults" element={<SearchResults />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </Suspense>
+        <Footer />
       </BrowserRouter>
     </GlobalState>
   );

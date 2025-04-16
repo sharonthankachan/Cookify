@@ -1,10 +1,12 @@
 // GlobalState.js
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { createContext } from "react";
+import Loader from "../Components/ReusableComponents/Loader";
+
 export const GlobalContext = createContext(null);
 
-const api_id = import.meta.env.VITE_APP_ID
-const api_key = import.meta.env.VITE_APP_KEY
+const api_id = import.meta.env.VITE_APP_ID;
+const api_key = import.meta.env.VITE_APP_KEY;
 
 const GlobalState = ({ children }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -12,37 +14,33 @@ const GlobalState = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [limit, setLimit] = useState(12);
   const [favorites, setFavorites] = useState([]);
-
-  const [searchFQuery, setSearchFQuery] = useState("featured");
   const [fResponse, setFResponse] = useState(null);
   const [fLimit, setFLimit] = useState(12);
 
-  const handleSearch = async (e) => {
+  const handleSearch = async (searchQuery, nextPageUrl) => {
+    setLoading(true); 
     try {
       const res = await fetch(
-        `https://api.edamam.com/search?q=${searchQuery}&app_id=${api_id}&app_key=${api_key}&from=0&to=${limit}`
+        nextPageUrl ||
+          `https://api.edamam.com/api/recipes/v2?type=public&q=${searchQuery}&app_id=${api_id}&app_key=${api_key}`
       );
       const data = await res.json();
-      setResponse(data);
+      return data;
     } catch (error) {
-      console.log("error", error);
+      console.error("Error fetching data:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleFSearch = async () => {
-    try {
-      const res = await fetch(
-        `https://api.edamam.com/search?q=${searchFQuery}&app_id=${api_id}&app_key=${api_key}&from=0&to=${fLimit}`
-      );
-      const data = await res.json();
-      setFResponse(data);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-  console.log("fff", fResponse);
+  useEffect(() => {
+    handleSearch("trending").then((data) => setFResponse(data));
+  }, []);
+
 
   return (
+    <div>
+      {/* {loading && <Loader/>} */}
     <GlobalContext.Provider
       value={{
         searchQuery,
@@ -54,19 +52,17 @@ const GlobalState = ({ children }) => {
         setLimit,
         loading,
         setLoading,
-        searchFQuery,
-        setSearchFQuery,
         fResponse,
         setFResponse,
         fLimit,
         setFLimit,
-        handleFSearch,
         favorites,
         setFavorites,
       }}
     >
       {children}
     </GlobalContext.Provider>
+    </div>
   );
 };
 

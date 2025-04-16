@@ -43,7 +43,7 @@ const RecipeCard = ({
 
   return (
     <>
-      {!loading ? (
+      {/* {!loading ? ( */}
         <div className="mx-5 my-5 bg-white shadow-lg rounded-lg overflow-hidden hover:cursor-pointer">
           <div className="relative h-64 overflow-hidden ">
             <img
@@ -77,7 +77,7 @@ const RecipeCard = ({
             </div>
           </div>
         </div>
-      ) : (
+      {/* ) : (
         <div className="flex flex-col mx-5 my-5 gap-4 mw-68">
           <div className="skeleton h-72 w-full"></div>
           <div className="skeleton h-4 w-36"></div>
@@ -86,7 +86,7 @@ const RecipeCard = ({
             <div className="skeleton h-4 w-full"></div>
           </div>
         </div>
-      )}
+      )} */}
     </>
   );
 };
